@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: pdf-rag-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8000
+      # Add your environment variables in Render dashboard
+      # OPENAI_API_KEY
+      # CLOUDINARY_CLOUD_NAME
+      # CLOUDINARY_API_KEY
+      # CLOUDINARY_API_SECRET
+      # REDIS_HOST
+      # REDIS_PORT
+      # REDIS_USERNAME
+      # REDIS_PASSWORD
+      # REDIS_TLS
+      # QDRANT_URL
+      # QDRANT_API_KEY
+      # QDRANT_COLLECTION_NAME
+      # CORS_ORIGIN
+
+  - type: worker
+    name: pdf-rag-worker
+    env: node
+    buildCommand: npm install
+    startCommand: npm run worker
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Add same environment variables as web service
+
